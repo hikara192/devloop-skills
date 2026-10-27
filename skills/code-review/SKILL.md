@@ -14,7 +14,9 @@ Pick the first option that applies:
 
 - PR number or URL given: `gh pr view <n>` and `gh pr diff <n>`.
 - Branch given: `git diff <base>...<branch>` (base is usually `main` or `master`).
-- Otherwise: `git diff --staged`, then `git diff`. If both are empty, compare `HEAD` with the default branch.
+- Otherwise: `git diff --staged`, then `git diff`.
+- If both are empty and the repository has a default branch, compare `HEAD` with it.
+- If there is no base to compare against (for example, the repository has one commit or no default branch), review the latest commit: `git show HEAD`. Read the full files it touches at `HEAD`, and state in the report that the scope is the latest commit.
 
 If the scope is still ambiguous, ask one question before reviewing.
 

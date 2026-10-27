@@ -2,7 +2,7 @@
   "skills": [
     {
       "name": "code-review",
-      "version": "1",
+      "version": "2",
       "files": ["SKILL.md", "references/checklist.md"]
     },
     {
