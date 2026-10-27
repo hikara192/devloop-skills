@@ -1,0 +1,29 @@
+{
+  "skills": [
+    {
+      "name": "code-review",
+      "version": "1",
+      "files": ["SKILL.md", "references/checklist.md"]
+    },
+    {
+      "name": "git-release",
+      "version": "1",
+      "files": ["SKILL.md", "references/semver-rules.md"]
+    },
+    {
+      "name": "test-writer",
+      "version": "1",
+      "files": ["SKILL.md"]
+    },
+    {
+      "name": "conventional-commits",
+      "version": "1",
+      "files": ["SKILL.md"]
+    },
+    {
+      "name": "security-audit",
+      "version": "1",
+      "files": ["SKILL.md", "references/owasp-checklist.md"]
+    }
+  ]
+}
