@@ -32,6 +32,17 @@ Add the path to `opencode.json` or `opencode.jsonc`. This keeps the skills in sy
 
 Config changes apply without a restart. Run `/reload` in OpenCode if a skill does not appear right away.
 
+### Option 3: Load from the HTTP catalog
+
+Nothing to clone. OpenCode downloads the skills from this repository and caches them. Bump the `version` in `index.json` to refresh the cache after an update:
+
+```jsonc
+{
+  "$schema": "https://opencode.ai/config.json",
+  "skills": ["https://raw.githubusercontent.com/hikara192/opencode-skills/main/skills"],
+}
+```
+
 ### Using a skill
 
 Let the agent choose a skill from the task description, or load one explicitly by mentioning it:
