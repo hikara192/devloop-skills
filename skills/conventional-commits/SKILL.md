@@ -44,7 +44,7 @@ Breaking changes add `!` after the type or scope, or a `BREAKING CHANGE:` footer
 4. **Write the description.** Use the imperative mood, lowercase first letter, no trailing period, and keep the first line under 72 characters.
 5. **Write the body when the why is not obvious.** Explain motivation and trade-offs, not a restatement of the diff. Wrap lines at 72 characters.
 6. **Add footers.** Reference issues with `Refs: #123` or `Closes #123`. Document breaking changes with `BREAKING CHANGE: <what breaks and how to migrate>`.
-7. **Show the message before committing** unless the user explicitly asked you to commit without review.
+7. **Show the message before committing.** Skip this only when the user explicitly asks you to commit without review. In that case, list every committed message in your final reply so the user can check them with `git log`.
 
 For multi-line messages, use a heredoc so formatting survives:
 
