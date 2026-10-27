@@ -12,7 +12,7 @@
     },
     {
       "name": "test-writer",
-      "version": "1",
+      "version": "2",
       "files": ["SKILL.md"]
     },
     {

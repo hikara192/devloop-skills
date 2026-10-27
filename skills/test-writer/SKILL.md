@@ -38,6 +38,9 @@ Write a short table of cases before writing any test code:
 | Errors | Dependency fails, timeout, permission denied, not found |
 | State | Repeated calls, order of operations, idempotency |
 | Regression | The exact input that caused a reported bug |
+| Concurrency and storage | Parallel calls on shared state, interrupted or partial writes, leftover temp or lock files, file permissions, symlinks at predictable paths |
+
+Add the concurrency and storage rows whenever the code touches shared state, files, or locks. Those bugs rarely show up in single-call tests.
 
 Show the table to the user when the scope is large. Otherwise proceed.
 
