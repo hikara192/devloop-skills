@@ -21,6 +21,8 @@ Hints: `router\.(get|post|put|patch|delete)`, `@app\.route`, `@RequestMapping`, 
 
 Hints: `exec\(`, `eval\(`, `shell=True`, `innerHTML`, `dangerouslySetInnerHTML`, `\$\{.*\}.*(SELECT|INSERT|UPDATE|DELETE)`.
 
+These hints overmatch. Test helpers and wrappers often reuse names such as `exec`. Confirm the call reaches a real sink by checking imports (`child_process`, `os/exec`, `subprocess`) and the arguments.
+
 ## Sensitive data exposure (CWE-200, CWE-312, CWE-532)
 
 - Hard-coded credentials, API keys, or connection strings in source or tests.
@@ -55,6 +57,17 @@ Hints: `fetch\(`, `axios\.`, `requests\.get\(`, `http\.get\(`, `urllib`.
 - Uploads that trust the client-provided content type or extension. Check size limits and storage location.
 
 Hints: `pickle\.load`, `yaml\.load\(`, `ObjectInputStream`, `path\.join\(.*req\.`, `open\(.*request`.
+
+## Insecure file handling (CWE-59, CWE-367, CWE-732)
+
+- Temporary, lock, or backup files written under predictable names (`<file>.tmp`, `<file>.lock`) in a directory another user can write to. An attacker can plant a symlink there, and the write follows it.
+- Writes without an exclusive create flag (`O_EXCL`, `wx`) or without a random name, so an existing symlink or file is silently reused.
+- Sensitive data written with default permissions (for example `0644` under a typical umask). Use `0600` for private user data.
+- Check-then-use races: `exists()` followed by `open()`, or permission checks on a path that can be swapped before use.
+- Lock files left behind after a crash, with no stale-lock handling or a clear error message.
+- Predictable paths read from environment variables or config without checking the owning directory.
+
+Hints: `\.tmp['"`]`, `\.lock['"`]`, `writeFile\(`, `writeFileSync\(`, `existsSync\(`, `chmod`, `umask`, `0o6?44`.
 
 ## Security misconfiguration (CWE-16, CWE-942)
 

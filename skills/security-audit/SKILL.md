@@ -39,7 +39,7 @@ cargo audit                     # Cargo.lock
 govulncheck ./...               # go.sum
 ```
 
-Treat tool output as leads, not findings. Confirm each one by reading the code.
+Treat tool output as leads, not findings. Confirm each one by reading the code. Pattern hints overmatch: test helpers often share names with dangerous calls (for example, a helper named `exec`). Before reporting an injection finding, confirm the call reaches a real sink, such as an import of `child_process` or a query built from input.
 
 ## 3. Manual review by category
 
@@ -49,8 +49,9 @@ Work through the categories in `references/owasp-checklist.md`. Prioritize:
 2. Injection into SQL, shell, templates, LDAP, and HTML output.
 3. Secrets and sensitive data in source, configuration, logs, and error responses.
 4. Input handling for file paths, URLs, and deserialization.
-5. Authentication flows: session handling, password reset, token expiry, rate limiting on sensitive actions.
-6. Defaults: debug mode, permissive CORS, disabled TLS verification, wildcard permissions.
+5. Files and shared state: predictable temporary or lock file names, symlinks followed on write, file permissions on sensitive data, and checks that race with later use.
+6. Authentication flows: session handling, password reset, token expiry, rate limiting on sensitive actions.
+7. Defaults: debug mode, permissive CORS, disabled TLS verification, wildcard permissions.
 
 ## 4. Verify each finding
 

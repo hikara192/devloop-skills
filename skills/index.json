@@ -22,7 +22,7 @@
     },
     {
       "name": "security-audit",
-      "version": "1",
+      "version": "2",
       "files": ["SKILL.md", "references/owasp-checklist.md"]
     }
   ]
