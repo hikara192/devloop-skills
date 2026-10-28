@@ -1,6 +1,6 @@
-# OpenCode Skills
+# devloop-skills
 
-A collection of production-ready skills for [OpenCode](https://opencode.ai). Each skill gives the agent a focused, repeatable workflow for one engineering task.
+Production-ready skills for [OpenCode](https://opencode.ai) and other coding agents. Each skill gives the agent a focused, repeatable workflow for one engineering task: review, test, commit, and release with the same discipline every time.
 
 | Skill | What it does |
 | ----- | ------------ |
@@ -15,8 +15,8 @@ A collection of production-ready skills for [OpenCode](https://opencode.ai). Eac
 ### Option 1: Copy into your global skills directory
 
 ```sh
-git clone https://github.com/hikara192/opencode-skills.git
-cp -r opencode-skills/skills/* ~/.config/opencode/skills/
+git clone https://github.com/hikara192/devloop-skills.git
+cp -r devloop-skills/skills/* ~/.config/opencode/skills/
 ```
 
 ### Option 2: Reference the folder from your config
@@ -26,7 +26,7 @@ Add the path to `opencode.json` or `opencode.jsonc`. This keeps the skills in sy
 ```jsonc
 {
   "$schema": "https://opencode.ai/config.json",
-  "skills": ["/absolute/path/to/opencode-skills/skills"],
+  "skills": ["/absolute/path/to/devloop-skills/skills"],
 }
 ```
 
@@ -39,7 +39,7 @@ Nothing to clone. OpenCode downloads the skills from this repository and caches 
 ```jsonc
 {
   "$schema": "https://opencode.ai/config.json",
-  "skills": ["https://raw.githubusercontent.com/hikara192/opencode-skills/main/skills"],
+  "skills": ["https://raw.githubusercontent.com/hikara192/devloop-skills/main/skills"],
 }
 ```
 
